@@ -53,7 +53,7 @@ _patterns = [
 
     # API
     path('api/', APIRootView.as_view(), name='api-root'),
-    path('api/auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/circuits/', include('circuits.api.urls')),
     path('api/dcim/', include('dcim.api.urls')),
     path('api/extras/', include('extras.api.urls')),
