@@ -53,6 +53,7 @@ _patterns = [
 
     # API
     path('api/', APIRootView.as_view(), name='api-root'),
+    path('api/auth/', include('rest_framework.urls', namespace='rest_framework'))
     path('api/circuits/', include('circuits.api.urls')),
     path('api/dcim/', include('dcim.api.urls')),
     path('api/extras/', include('extras.api.urls')),
@@ -65,7 +66,6 @@ _patterns = [
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=86400), name='api_docs'),
     path('api/redoc/', schema_view.with_ui('redoc', cache_timeout=86400), name='api_redocs'),
     re_path(r'^api/swagger(?P<format>.json|.yaml)$', schema_view.without_ui(cache_timeout=86400), name='schema_swagger'),
-
     # GraphQL
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema)), name='graphql'),
 
